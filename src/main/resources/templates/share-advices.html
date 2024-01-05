@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+	    <title>Share Market Advice</title>
+        <link rel="stylesheet" th:href="@{/css/user-home.css}"/>
+        <link rel="stylesheet" th:href="@{/css/styles.css}"/>
+</head>
+<body class="site">
+<h1> My Trusted Stock Adviser</h1>
+
+	<div class="user-header">
+        <div class="logout-link">
+            <a th:href="@{logout}">Logout</a>
+        </div>
+    </div>
+    
+    <h2>Your Customized Share Advice</h2>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Share Name</th>
+                <th>Advice</th>
+            </tr>
+        </thead>
+        <tbody>
+             <tr th:each="advice : ${advices}">
+                <td th:text="${advice.shareName}"></td>
+                <td>
+                    <ul>
+                        <li th:each="description : ${advice.adviceList}" th:text="${description}"></li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <footer>
+        <div class="footer-links">
+            <ul>
+                <li><a href="#terms">Terms of Service</a></li>
+                <li><a href="#privacy">Privacy Policy</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+        </div>
+        <div class="footer-info">
+            <p>&copy; 2023 Stock Advisor. All rights reserved.</p>
+            <p>Connect with us: <a href="#social">Facebook</a> | <a href="#social">Twitter</a> | <a href="#social">LinkedIn</a></p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,15 @@
+  spring:
+    security:
+      oauth2:
+        client:
+          registration:
+            google:
+              clientId: 1070735995772-vb5tm664jk5gpflb1b6vetkctn77tfgn.apps.googleusercontent.com
+              clientSecret : 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
+              # use the below for local testing
+              #clientId : 234968405455-fvqk1vkc7u5tibi2v66q3jttpdbmovj2.apps.googleusercontent.com
+              #clientSecret : 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
+              
+  #server:
+    #port : 9191
+              

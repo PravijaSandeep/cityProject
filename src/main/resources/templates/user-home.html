@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Home Page</title>
+    <link rel="stylesheet" th:href="@{/css/user-home.css}"/>
+    <link rel="stylesheet" th:href="@{/css/styles.css}"/>
+</head>
+<body>
+<h1> My Trusted Stock Adviser</h1>
+    
+    <div class="user-header">
+        <div class="logout-link">
+            <a th:href="@{logout}">Logout</a>
+        </div>
+    </div>
+    
+    <form id="sharesForm" action="/submitShares" method="post">
+
+        <div class="container">
+            <h2>Welcome, <span th:text="${name}">User</span>!</h2>
+            <p>Please select a maximum of 5 shares to proceed.</p>
+            
+            <div class="searchable-multiselect">
+                <input type="text" class="search-input" placeholder="Search...">
+                <div class="multiselect-options">
+                    <!-- Iterate over the options from the controller -->
+                    <label th:each="option : ${shareOptions}">
+                        <input type="checkbox" th:name="share" th:value="${option.name}" th:text="${option.name}" />
+                    </label>
+                </div>
+            </div>
+            <br>
+            <div class="selected-options">
+                <h3>Selected shares:</h3>
+                <br>
+                <ul id="selectedChoices">
+                    <!-- Iterate over the selected shares from the controller -->
+                    <li th:each="selectedShare : ${subscriptions}">
+                        <span th:text="${selectedShare}"></span>
+                        <button type="button" class="remove-btn" th:value="${selectedShare}">Remove</button>
+                    </li>
+                </ul>
+            </div>
+            
+           	 <input type="hidden" name="selectedShares" id="selectedShares"> <!-- Hidden input field to store selected shares -->
+            
+            <button type="submit" class="btn">Submit</button>
+        </div>
+        
+        <script src="js/custom.js"></script>
+    </form>
+     <footer>
+        <div class="footer-links">
+            <ul>
+                <li><a href="#terms">Terms of Service</a></li>
+                <li><a href="#privacy">Privacy Policy</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+        </div>
+        <div class="footer-info">
+            <p>&copy; 2023 Stock Advisor. All rights reserved.</p>
+            <p>Connect with us: <a href="#social">Facebook</a> | <a href="#social">Twitter</a> | <a href="#social">LinkedIn</a></p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,114 @@
+/* Basic styling, adjust as needed */
+body {
+	font-family: Arial, sans-serif;
+	background-color: #f5f5f5;
+	margin: 0;
+	padding: 0;
+}
+
+.container {
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 20px;
+}
+
+h1 {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.searchable-multiselect {
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	padding: 10px;
+}
+
+.search-input {
+	width: 95%;
+	padding: 8px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	margin-bottom: 10px;
+}
+
+.multiselect-options label {
+	display: block;
+	margin-bottom: 5px;
+}
+
+/* Hide options by default and show based on search/filter */
+.multiselect-options label {
+	display: none;
+}
+
+.user-header {
+	display: flex;
+	justify-content: flex-end;
+	/* Align items to the right */
+	padding: 10px;
+	background-color: #f0f0f0;
+}
+
+.logout-link {
+	order: 2;
+}
+
+  #selectedChoices {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    #selectedChoices li {
+        margin-bottom: 10px;
+        padding: 8px;
+        background-color: #f2f2f2;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .remove-btn {
+        background-color: #d9534f;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+
+    .remove-btn:hover {
+        background-color: #c9302c;
+    }
+    
+      table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: 20px auto;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th:nth-child(1), td:nth-child(1) {
+            /* Adjust the width of the first column (Share Name) */
+            width: 25%;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        
+body.site {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Set a minimum height of the viewport height */
+}
+
+body.site > footer {
+    margin-top: auto; /* Push the footer to the bottom of the page */
+}
+
+/* Your existing styles for the footer can remain unchanged */
+        

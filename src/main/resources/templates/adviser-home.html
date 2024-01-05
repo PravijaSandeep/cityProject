@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Adviser</title>
+    <link rel="stylesheet" th:href="@{/css/adviser-home.css}"/>
+</head>
+<body>
+
+    <header>
+        <h1>Stock Adviser</h1>
+    </header>
+
+    <nav>
+        <div class="user-header">
+            <div class="logout-link">
+                <a th:href="@{adviser-home}">Home</a>
+                <a th:href="@{/publish-message}" th:action="@{/publish-message}">Publish Advice</a>
+                <a th:href="@{/manage-stock}" th:action="@{/manage-stock}">Manage Stock</a>
+                <a th:href="@{adviser-reg}">Create New Adviser</a>
+                <a th:href="@{logout}">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home">
+        <h2>Welcome to Stock Adviser</h2>
+        <p>Leverage your expertise to guide investor decisions.</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Stock Adviser</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Publishing Message</title>
+	<link rel="stylesheet" th:href="@{/css/adviser-home.css}" />
+	<script src="customTopic.js"></script> <!-- Link to the new JavaScript file -->
+</head>
+
+<body>
+	<header>
+		<h1>Publish New Analysis</h1>
+		<!-- Add any additional header information here -->
+	</header>
+
+	<nav>
+		<div class="user-header">
+			<div class="logout-link">
+				<a th:href="@{adviser-home}">Home</a>
+				   <a th:href="@{/manage-stock}" th:action="@{/manage-stock}">Manage Stock</a>
+	    		<a th:href="@{adviser-reg}">Create New Adviser</a>
+				<a th:href="@{logout}">Logout</a>
+			</div>
+		</div>
+	</nav>
+
+
+
+	
+	<section>
+	<div th:if="${param.error}">
+		<p style="color: red;">Something went wrong in publishing message!! </p>
+	</div>
+
+	<div th:if="${param.logout}">
+		<p style="color: green;">You have been logged out successfully.</p>
+	</div>
+
+	<div th:if="${publishSuccess}">
+		<p style="color: green;">Advice Published Successfully! </p>
+	</div>
+	
+		<div class="select">
+			<form class="publish-form" action="/publishMessage" method="post">
+				<h1>Select a Stock to publish New Analysis !!</h1>
+				<div>
+					<select id="topicName" name="topicName" onchange="toggleOtherTopicInput(this)">
+						<option>Select</option>
+							<option th:each="topic : ${topics}" th:value="${topic}" th:text="${topic}"></option>
+						<option>Other(Create New Stock)</option>
+					</select>
+				</div>
+				<br>
+				<div id="otherTopicInput" style="display: none;">
+					<input type="text" id="customTopic" name="topicName" placeholder="Enter custom topic name">
+				</div>
+				<br>
+				<div>
+					<!-- Add other form elements as needed -->
+					<textarea id="stockMsg" name="stockMsg" rows=4 cols=50 placeholder="Type stock update..."
+						required></textarea>
+				</div>
+				<br>
+				<div>
+					<button type="submit">Publish</button>
+				</div>
+			</form>
+		</div>
+	</section>
+<br><br>
+<br><br>
+	<script>
+		function toggleOtherTopicInput(selectElement) {
+			var otherTopicInput = document.getElementById("otherTopicInput");
+			if (selectElement.value === "Other(Create New Stock)") {
+				otherTopicInput.style.display = "block";
+			} else {
+				otherTopicInput.style.display = "none";
+			}
+		}
+	</script>
+	
+	 <footer>
+        <p>&copy; 2023 Stock Adviser</p>
+    </footer>
+</body>
+
+</html>
