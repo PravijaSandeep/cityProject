@@ -87,14 +87,17 @@ main {
     margin-top: 50px;
 }
 
-/* Footer styles */
-footer {
-    background-color: #333;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
-}
 
+footer {
+     	background-color: #333;
+     	color: #fff;
+     	text-align: center;
+     	padding: 5px 0;
+     	position: fixed;
+     	bottom: 0;
+     	width: 100%;
+     }
+     
 .footer-links ul li {
     display: inline;
     margin-right: 10px;
