@@ -99,8 +99,8 @@ public class LoginController {
 		 System.out.println("inside processAdviserLogin");
 		   
 		return "adviser-home";
-	           
 	}
+	
 	@GetMapping("/adviser-home")
 	public String ShowAdviserHome() {
 		return "adviser-home";
