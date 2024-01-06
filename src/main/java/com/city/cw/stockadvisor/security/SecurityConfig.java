@@ -45,6 +45,8 @@ public class SecurityConfig{
 	
 	@Bean
 	SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+		
+		
         http.csrf(csrf -> csrf.disable())
                    .authorizeHttpRequests(auth -> {
                     auth.requestMatchers("/", "/*login**", "/css/**", "/js/**").permitAll()
@@ -54,23 +56,24 @@ public class SecurityConfig{
                         .requestMatchers("/adviser-home").authenticated()
                         .anyRequest().authenticated();
                 })
-                           
+                
+                .oauth2Login(login -> {
+                    System.out.println("Login using OAuth");
+                    login.successHandler(oauthHandler);
+
+                })
                 .formLogin(form->form
                 		.loginPage("/adviser-login")
                 		.loginProcessingUrl("/adviserHome")
                 		.defaultSuccessUrl("/adviser-home")
                 		.permitAll()
                 )
-                .oauth2Login(login -> {
-                    System.out.println("Login success");
-                    login.successHandler(oauthHandler);
-
-                })
 
                 .logout(logout -> logout
                         .logoutUrl("/logout")
                         .logoutSuccessUrl("/").permitAll()
                         .invalidateHttpSession(true)
+                        .deleteCookies("JSESSIONID")
                         .clearAuthentication(true));
         
 				return http.build();

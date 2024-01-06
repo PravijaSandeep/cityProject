@@ -15,6 +15,7 @@
             <a th:href="@{logout}">Logout</a>
         </div>
     </div>
+
     
     <form id="sharesForm" action="/submitShares" method="post">
 
@@ -27,7 +28,9 @@
                 <div class="multiselect-options">
                     <!-- Iterate over the options from the controller -->
                     <label th:each="option : ${shareOptions}">
-                        <input type="checkbox" th:name="share" th:value="${option.name}" th:text="${option.name}" />
+                        <input type="checkbox" th:name="share" th:value="${option.name}" th:text="${option.name}"
+                        th:checked="${subscriptions.contains(option.name)}" />
+                        
                     </label>
                 </div>
             </div>
