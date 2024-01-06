@@ -40,17 +40,32 @@ The sample `pom.xml` file includes:
 - Spring Cloud GCP Dependencies
 - Spring Cloud GCP Starter SQL MySQL
 
-## Deployment
-
-### Deploy the app to App Engine
-
-1. **Initialize using gcloud:** Choose the account and project: `gcloud init`.
-2. **Navigate to the project folder:** Include necessary plugins in `pom.xml`. Deploy the project to App Engine: `gcloud app deploy`.
-3. **Retrieve application URL:** Use `gcloud app browse` to get the application URL.
-4. **View logs:** Use `gcloud app logs tail -s default` to see logs on the terminal.
+## Cloud Deployment
 
 ### Cloud SQL Database
+ **Open google console and set up the project**
+  - Enable Cloud SQL API
+  - Create a Cloud SQL Instance with MySQL as the database engine
+  - Once the instance is created, create the database.
+  - Modify the application.properties to point to the created database and connection. 
+   - spring.cloud.gcp.sql.database-name=<DB_NAME>
+   - spring.cloud.gcp.sql.instance-connection-name=<Connection URL. Eg : stock-advisor-408720:us-central1:sa-db>
 
-- Open Cloud Shell and choose the project using `gcloud init`.
-- Connect to the database instance using `gcloud sql connect <db-instance-name> --user=root`.
-- Use commands such as `show databases`, `use <preferedb>`, `show tables`, `show columns from <table>` to manage and view databases and tables.
+### Cloud PubSub Set up
+
+ **Access to Google Cloud Console and choose the project created to enable pubsub**
+   - Enable the Pub/Sub API for that project.
+   - Create a service account. 
+   - Grant Role as Pub/Sub Admin, Pub/Sub Publisher and Pub/Sub Subscribers.
+  
+### Deploy the app to App Engine
+
+1. **Enable App Engine in Google Cloud Console for the project created**
+2. **Go to App Engine and Select Create Application**
+3. **Once the App Engine application is created, deploy the application from local system suing following steps**
+     - Install google cloud sdk on local system**
+     - Open terminal and set up project to deploy**
+     - Initialize using gcloud:** Choose the account and project: `gcloud init`.
+     - Navigate to the project folder:** Include necessary plugins in `pom.xml`. Deploy the project to App Engine: `gcloud app deploy`.
+     - Retrieve application URL:** Use `gcloud app browse` to get the application URL.
+     - Use `gcloud app logs tail -s default` to see logs on the terminal.
