@@ -63,9 +63,9 @@ The sample `pom.xml` file includes:
 1. **Enable App Engine in Google Cloud Console for the project created**
 2. **Go to App Engine and Select Create Application**
 3. **Once the App Engine application is created, deploy the application from local system suing following steps**
-     - Install google cloud sdk on local system**
-     - Open terminal and set up project to deploy**
-     - Initialize using gcloud:** Choose the account and project: `gcloud init`.
-     - Navigate to the project folder:** Include necessary plugins in `pom.xml`. Deploy the project to App Engine: `gcloud app deploy`.
-     - Retrieve application URL:** Use `gcloud app browse` to get the application URL.
+     - Install google cloud sdk on local system
+     - Open terminal and set up project to deploy
+     - Initialize using gcloud: Choose the account and project: `gcloud init`.
+     - Navigate to the project folder: Include necessary plugins in `pom.xml`. Deploy the project to App Engine: `gcloud app deploy`.
+     - Retrieve application URL: Use `gcloud app browse` to get the application URL.
      - Use `gcloud app logs tail -s default` to see logs on the terminal.
